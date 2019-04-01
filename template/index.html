@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>My api</title>
+  <link href='https://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet prefetch' href='https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/css/demo.css'>
+  <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}"> 
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<script language="javascript">
+function run()
+{
+	var a = f1.t1.value;
+	document.location.href="/process?text="+a;
+}
+function json()
+{
+	var a = f1.t1.value;
+	document.location.href="/json?text="+a;
+}
+</script>
+</head>
+<body>
+ <div id="large-header" class="large-header">
+ <canvas id="demo-canvas"></canvas>
+ <h1 class="main-title">Sentimental <span class="thin">analysis<br><br>
+
+  <form name="f1">
+  <textarea name="t1" placeholder="Write here" cols=50 rows=5 class="thin"></textarea><br><br>
+  <input type="button" value="Check" onclick="run()" class="thin"><br><br>
+      <input type="button" value="Get json response" onclick="json()" class="thin">
+      <hr width="80%" color='white'><br>
+      <a href="https://github.com/SuyashSonawane/sentimental_analysis-api" target="_blank"><font color="white">Get this on github</font></a><br>
+  Please enter a meaningful and compelet statment for proper response <br>
+ 
+</form>
+ </span></h1>
+</div>
+  <script src='https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/EasePack.min.js'></script>
+<script src='https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/rAF.js'></script>
+<script src='https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/TweenLite.min.js'></script> 
+<script  src="{{ url_for('static',filename='index.js')}}"></script>
+
+
+</body>
+
+</html>
