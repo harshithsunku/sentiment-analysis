@@ -11,13 +11,14 @@ mydb = mysql.connector.connect(
   database="fk"
 )
 mycursor = mydb.cursor()
-mycursor.execute("SELECT p_id,p_productUrl FROM mobiles")
+mycursor.execute("SELECT p_id,p_productUrl FROM cameras")
 myresult = mycursor.fetchall()
-i = 1500
-for x in range(1500,1510):
+i = 1
+# print(len(myresult))
+for x in range(1 , len(myresult)) :
     # print(myresult[x][1])
     # api-endpoint 
-    URL = "https://harshith.in/project/url.php"
+    URL = "http://127.0.0.1/url.php"
     # location given here 
     # location = "https://www.flipkart.com/nokia-6-1-plus-black-64-gb/p/itmf8r36g9gfpafg?pid=MOBF8FCFB9KWUTVQ&srno=b_1_1&otracker=hp_omu_Snapdragon%2BProcessor%2BPhones_1_H15FMINN8LZX_1&otracker1=hp_omu_WHITELISTED_neo%2Fmerchandising_Snapdragon%2BProcessor%2BPhones_NA_dealCard_cc_1_NA_1&lid=LSTMOBF8FCFB9KWUTVQCQ7AWU&fm=neo%2Fmerchandising&iid=142b3287-f004-4f30-95ab-763517588513.MOBF8FCFB9KWUTVQ.SEARCH&ppt=Homepage&ppn=Homepage&ssid=gzm65r6u280000001554061597224"
     location = myresult[x][1]
@@ -41,6 +42,12 @@ for x in range(1500,1510):
         else:
             a="Positive"
             total_pos = total_pos + p
-    print(total_pos , total_neg , myresult[i][0])
+    # print(total_pos , total_neg , myresult[i][0])
+    # print(total_pos + total_neg , myresult[i][0])
+    var_string = ', '.join('?' * len(reviews_list))
+    sql = "INSERT INTO camera_data (p_id , score) VALUES (%s, %s)"
+    val = (myresult[i][0] , (total_pos + total_neg))
+    mycursor.execute(sql, val)
+    mydb.commit()
     i = i + 1
 # print(r1)

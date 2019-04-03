@@ -23,8 +23,5 @@ def json():
     res = TextBlob(str(request.args['text']))
     p = res.sentiment
     return jsonify(p)
-
-
-
 if __name__ == '__main__':
         app.run(debug=True)
