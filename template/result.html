@@ -12,10 +12,17 @@
 </head>
 <body>
  <div id="large-header" class="large-header">
- <canvas id="demo-canvas"></canvas>
- <h1 class="main-title">The polarity of the statment is "{{pol}}" , it is a "{{state}}" statment.<br>
+ <!-- <canvas id="demo-canvas"></canvas> -->
+ <h1 class="main-title">The polarity of the statment is "{{pol}}" <br> it is a "{{state}}" statment.<br>
+<br>
+<br>
+  <button onclick="goBack()">Back</button>
 
-Thanks for using our api.
+  <script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
  <span class="thin">
  </span></h1>
 
